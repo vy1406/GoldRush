@@ -1,0 +1,38 @@
+:root {
+    --yellow: #ffc600;
+    --black: #272727;
+  }
+
+#container{
+    display:grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+    "b b b b s"
+    "b b b b s"
+    "b b b b s"
+    "b b b b s"
+}
+
+#board{
+    display:grid;
+    grid-area: b;
+
+}
+#scores{
+    grid-area: s;
+}
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+}
+.box {
+    
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid rgba(0, 0, 0, 0.03);
+    border-radius: 3px;
+    font-size: 35px;
+    background-color: var(--yellow); /* best colour */
+  }
+  

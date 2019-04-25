@@ -11,12 +11,34 @@
 </head>
 
 <body>
-    <div id="board"></div>
+    <div id="container">
+        <div id="board"></div>
+        <div id="scores"></div>
+    </div>
+    <!-- ----------------------------------------------------->
+    <script id="board-render-script" type="text/x-handlebars-template">
+            <div class="board">
+                {{#each matrix}}
+                <div class="row"> 
+                    {{#each this}}
+                    <div class="box">{{this.[0]}}</div> 
+                    {{/each}}
+                    <br>
+                </div>
+                {{/each}}
+            </div>
+        </script>
+    <!-- ---------------------------------------------------- -->
+    <script id="scores-render-script" type="text/x-handlebars-template">
+            <div id="player1">Player 1 score : {{player1_score}}</div>
+            <div id="player2">Player 2 score : {{player2_score}}</div>
+    </script>
+    <!-- ---------------------------------------------------- -->
     <script src="Renderer.js"></script>
     <script src="Matrix.js"></script>
     <script src="Player.js"></script>
     <script src="GoldRush.js"></script>
-
+    <script src="/handlebars/dist/handlebars.min.js"></script>
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>

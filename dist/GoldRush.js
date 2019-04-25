@@ -6,7 +6,8 @@ class GoldRush extends Matrix {
         this.player1 = new Player("1", 0, 0)
         this.player2 = new Player("2", this.LIMIT - 1, this.LIMIT - 1)
         this.loadBoard()
-        this.generateCoins(6)
+        this.generateCoins(this.LIMIT)
+        this.generateWalls(this.LIMIT - 3)
     }
     generateCoins(number) {
         let i = 0
@@ -19,7 +20,17 @@ class GoldRush extends Matrix {
             }
         }
     }
-
+    generateWalls(number) {
+        let i = 0
+        while (i < number) {
+            let generatedRow = Math.floor(Math.random() * this.LIMIT)
+            let generatedCol = Math.floor(Math.random() * this.LIMIT)
+            if (this.get(generatedRow, generatedCol) == ".") {
+                this.alter(generatedRow, generatedCol, "+")
+                i++
+            }
+        }
+    }
     loadBoard() {
         for (let i = 0; i < this.LIMIT; i++) {
             this.matrix.push([])
@@ -32,7 +43,7 @@ class GoldRush extends Matrix {
     ifOutOfBoundsOrWall(r, c) {
         if (r > this.LIMIT - 1 || r < 0) return true
         if (c > this.LIMIT - 1 || c < 0) return true
-        if (this.get(r, c) == "w") console.log("w")
+        if ((this.get(r, c) == "+") || (this.get(r, c) == "1") || (this.get(r, c) == "2")) return true
         return false
     }
     movePlayer(player, direction) {

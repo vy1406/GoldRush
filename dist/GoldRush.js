@@ -1,13 +1,13 @@
 
 class GoldRush extends Matrix {
-    LIMIT = 5;
+    LIMIT = 7;
     constructor() {
         super()
         this.player1 = new Player("1", 0, 0)
         this.player2 = new Player("2", this.LIMIT - 1, this.LIMIT - 1)
         this.loadBoard()
         this.generateCoins(this.LIMIT)
-        this.generateWalls(this.LIMIT - 3)
+        this.generateWalls(this.LIMIT - 2)
     }
     generateCoins(number) {
         let i = 0
